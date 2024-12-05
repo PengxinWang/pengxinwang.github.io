@@ -108,12 +108,8 @@
                     </a>
                     </li>
                 </ul>
+
             </div>    
-            <script>
-                // Set the banner image to a fixed one
-                var bannerUrl = "/medias/banner2/0.jpg";
-                $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
-            </script>
         </div>            
         </nav>
 </header>
@@ -124,7 +120,7 @@
             <div class="row">
             <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
             <div class="brand">
-            <div class="title center-align">Hi, strangers, Welcome to Pengxin's Personal Webpage.</div>
+            <div class="title center-align">Hi, strangers. Welcome to My Personal Webpage.</div>
             <div class="description center-align">
                 <span id="subtitle"></span>
                 <script src="/libs/typed/typed.js"></script>
@@ -149,13 +145,18 @@
             </div>
             </div>
 
+            <script>
+                var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
+                $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+            </script>
+            
             <div class="cover-btns">
     <a href="#indexCard" class="waves-effect waves-light btn">
-        <i class="fa fa-angle-double-down"></i>开始阅读
+        <i class="fa fa-angle-double-down"></i>Start Reading
     </a>
 
     
-        <a href="https://github.com/oceanechy" class="waves-effect waves-light btn" target="_blank">
+        <a href="https://github.com/PengxinWang" class="waves-effect waves-light btn" target="_blank">
             <i class="fab fa-github-alt"></i>Github
         </a>
     
