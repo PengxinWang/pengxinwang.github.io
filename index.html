@@ -40,7 +40,31 @@
       outline-offset: 4px;
     }
 
-    .intro { padding: clamp(3rem, 8vw, 5rem) 0 clamp(2.5rem, 6vw, 3.75rem); }
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) clamp(8.5rem, 18vw, 10.5rem);
+      align-items: center;
+      gap: 1.5rem clamp(1.5rem, 4vw, 2.5rem);
+      padding: clamp(3rem, 8vw, 5rem) 0 clamp(2.5rem, 6vw, 3.75rem);
+    }
+
+    .profile-photo {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: .75rem;
+    }
+
+    @media (max-width: 38rem) {
+      .intro { grid-template-columns: minmax(0, 1fr); }
+
+      .profile-photo {
+        grid-row: 1;
+        width: 7rem;
+      }
+    }
 
     h1, h2, h3 {
       margin: 0;
@@ -140,14 +164,17 @@
 <body>
   <main>
     <section class="intro" aria-labelledby="name">
-      <h1 id="name">Pengxin Wang</h1>
-      <p class="affiliation">PhD student at the University of Arizona</p>
-      <p class="bio">I study reinforcement learning for reliable long-horizon LLM agents and for teams of agents that need to coordinate under competing objectives.</p>
-      <div class="profile-links">
-        <a href="mailto:pxwang24@arizona.edu">Email</a>
-        <a href="https://scholar.google.com/citations?hl=en&amp;user=HmQiPVQAAAAJ">Google Scholar</a>
-        <a href="https://github.com/PengxinWang">GitHub</a>
+      <div>
+        <h1 id="name">Pengxin Wang</h1>
+        <p class="affiliation">PhD student at the University of Arizona</p>
+        <p class="bio">I study reinforcement learning for reliable long-horizon LLM agents and for teams of agents that need to coordinate under competing objectives.</p>
+        <div class="profile-links">
+          <a href="mailto:pxwang24@arizona.edu">Email</a>
+          <a href="https://scholar.google.com/citations?hl=en&amp;user=HmQiPVQAAAAJ">Google Scholar</a>
+          <a href="https://github.com/PengxinWang">GitHub</a>
+        </div>
       </div>
+      <img class="profile-photo" src="profile.jpg" width="560" height="560" alt="Pengxin Wang holding a camera in front of a red-rock canyon">
     </section>
 
     <section id="publications" aria-labelledby="publications-heading">
