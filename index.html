@@ -19,7 +19,7 @@
     * { box-sizing: border-box; }
 
     body {
-      max-width: 55rem;
+      max-width: 51rem;
       margin: 0 auto;
       padding: 0 clamp(1.25rem, 5vw, 3rem);
       background: var(--paper);
@@ -40,30 +40,19 @@
       outline-offset: 4px;
     }
 
-    .site-nav {
-      display: flex;
-      gap: .75rem 1.4rem;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      padding-block: 1.25rem;
-      border-bottom: 1px solid var(--rule);
-      font-size: .875rem;
-    }
-
-    .site-nav a { color: var(--muted); }
-
     .intro { padding: clamp(3rem, 8vw, 5rem) 0 clamp(2.5rem, 6vw, 3.75rem); }
 
     h1, h2, h3 {
       margin: 0;
       font-family: Georgia, serif;
       font-weight: 500;
-      line-height: 1.15;
+      line-height: 1.2;
+      text-wrap: balance;
     }
 
     h1 {
-      font-size: clamp(2.85rem, 8vw, 5rem);
-      letter-spacing: -.055em;
+      font-size: clamp(2.6rem, 8vw, 4.75rem);
+      letter-spacing: -.045em;
     }
 
     .affiliation {
@@ -74,9 +63,10 @@
     }
 
     .bio {
-      max-width: 36rem;
+      max-width: 60ch;
       margin: 1.25rem 0 0;
       font-size: 1.075rem;
+      text-wrap: pretty;
     }
 
     .profile-links {
@@ -94,31 +84,47 @@
     }
 
     article {
-      display: grid;
-      grid-template-columns: 6.5rem minmax(0, 1fr);
-      gap: .4rem 1.4rem;
-      padding: 1.3rem 0;
+      padding: 1.4rem 0;
       border-top: 1px solid var(--rule);
     }
 
-    .year, .authors {
+    .meta {
+      margin: .5rem 0 .65rem;
       color: var(--muted);
       font-size: .875rem;
+      line-height: 1.55;
+      text-wrap: pretty;
     }
 
-    .year { margin: .18rem 0 0; }
+    .author, .venue, .keep-together { white-space: nowrap; }
 
-    h3 { font-size: 1.3rem; }
+    .author, .venue { display: inline-block; }
 
-    h3 a { color: var(--ink); }
+    h3 {
+      max-width: 52ch;
+      font-size: clamp(1.25rem, 3.4vw, 1.5rem);
+      line-height: 1.3;
+      overflow-wrap: anywhere;
+    }
 
-    h3 a:hover { color: var(--accent); }
+    h3 a {
+      color: var(--ink);
+      text-decoration-color: var(--rule);
+      text-underline-offset: .16em;
+    }
 
-    .authors { margin: .4rem 0 .45rem; }
+    h3 a:hover {
+      color: var(--accent);
+      text-decoration-color: currentColor;
+    }
 
-    .authors strong { color: var(--ink); }
+    .meta strong { color: var(--ink); }
 
-    .tldr { margin: 0; }
+    .tldr {
+      max-width: 68ch;
+      margin: 0;
+      text-wrap: pretty;
+    }
 
     .tldr strong {
       margin-inline-end: .35rem;
@@ -129,28 +135,16 @@
     #publications {
       padding-bottom: 2.5rem;
     }
-
-    @media (max-width: 36rem) {
-      .site-nav { justify-content: flex-start; }
-      article { grid-template-columns: 1fr; }
-    }
   </style>
 </head>
 <body>
-  <header>
-    <nav class="site-nav" aria-label="Site">
-      <a href="#publications">Publications</a>
-      <a href="https://pengxinwang.github.io/archives/">Blog archive</a>
-    </nav>
-  </header>
-
   <main>
     <section class="intro" aria-labelledby="name">
       <h1 id="name">Pengxin Wang</h1>
       <p class="affiliation">PhD student at the University of Arizona</p>
       <p class="bio">I study reinforcement learning for reliable long-horizon LLM agents and for teams of agents that need to coordinate under competing objectives.</p>
       <div class="profile-links">
-        <a href="mailto:pxwang24@arizona.edu">pxwang24@arizona.edu</a>
+        <a href="mailto:pxwang24@arizona.edu">Email</a>
         <a href="https://scholar.google.com/citations?hl=en&amp;user=HmQiPVQAAAAJ">Google Scholar</a>
         <a href="https://github.com/PengxinWang">GitHub</a>
       </div>
@@ -160,42 +154,59 @@
       <h2 id="publications-heading">Publications</h2>
 
       <article>
-        <p class="year">arXiv · 2026</p>
-        <div>
-          <h3><a href="https://arxiv.org/abs/2611.23909">CoSlice: Coordinated Multi-Agent Reinforcement Learning for 5G Network Slicing Allocation</a></h3>
-          <p class="authors"><strong>Pengxin Wang</strong>, Nakjung Choi, Jingdi Chen</p>
-          <p class="tldr"><strong>TL;DR</strong> An LLM adjusts the priorities of fast resource-allocation agents, reducing service-level violations in simulated 5G networks.</p>
-        </div>
+        <h3><a href="https://arxiv.org/abs/2611.23909">CoSlice: Coordinated <span class="keep-together">Multi-Agent</span> Reinforcement Learning for 5G Network Slicing Allocation</a></h3>
+        <p class="meta">
+          <span class="author"><strong>Pengxin Wang</strong>,</span>
+          <span class="author">Nakjung Choi,</span>
+          <span class="author">Jingdi Chen</span>
+          <span class="venue">· arXiv 2026</span>
+        </p>
+        <p class="tldr"><strong>TL;DR</strong> An LLM adjusts the priorities of fast resource-allocation agents, reducing service-level violations in simulated 5G networks.</p>
       </article>
 
       <article>
-        <p class="year">arXiv · 2026</p>
-        <div>
-          <h3><a href="https://arxiv.org/abs/2610.09074">TAP: Efficient Long-Horizon Agent Pruning via Trajectory-Anchored Recovery</a></h3>
-          <p class="authors">Yuanzhe Li, <strong>Pengxin Wang</strong>, Yuxin Ren, Jianing Deng, Jingtong Hu, Song Wang, Jingdi Chen, Huanrui Yang</p>
-          <p class="tldr"><strong>TL;DR</strong> TAP prunes LLM agents and uses teacher trajectories to recover task performance, cutting GPU time per successful task on ALFWorld and WebShop.</p>
-        </div>
+        <h3><a href="https://arxiv.org/abs/2610.09074">TAP: Efficient <span class="keep-together">Long-Horizon</span> Agent Pruning via <span class="keep-together">Trajectory-Anchored</span> Recovery</a></h3>
+        <p class="meta">
+          <span class="author">Yuanzhe Li,</span>
+          <span class="author"><strong>Pengxin Wang</strong>,</span>
+          <span class="author">Yuxin Ren,</span>
+          <span class="author">Jianing Deng,</span>
+          <span class="author">Jingtong Hu,</span>
+          <span class="author">Song Wang,</span>
+          <span class="author">Jingdi Chen,</span>
+          <span class="author">Huanrui Yang</span>
+          <span class="venue">· arXiv 2026</span>
+        </p>
+        <p class="tldr"><strong>TL;DR</strong> TAP prunes LLM agents and uses teacher trajectories to recover task performance, cutting GPU time per successful task on ALFWorld and WebShop.</p>
       </article>
 
       <article>
-        <p class="year">arXiv · 2026</p>
-        <div>
-          <h3><a href="https://arxiv.org/abs/2609.34064">Learning Perturbation Robust Policies for LLM Agents with Stable Optimization</a></h3>
-          <p class="authors"><strong>Pengxin Wang</strong>, Yuanzhe Li, Yuxin Ren, Huanrui Yang, Jingdi Chen</p>
-          <p class="tldr"><strong>TL;DR</strong> SPrPO adds adaptive perturbations during RL training so long-horizon LLM agents better withstand noise, pruning, and quantization.</p>
-        </div>
+        <h3><a href="https://arxiv.org/abs/2609.34064">Learning Perturbation Robust Policies for LLM Agents with Stable Optimization</a></h3>
+        <p class="meta">
+          <span class="author"><strong>Pengxin Wang</strong>,</span>
+          <span class="author">Yuanzhe Li,</span>
+          <span class="author">Yuxin Ren,</span>
+          <span class="author">Huanrui Yang,</span>
+          <span class="author">Jingdi Chen</span>
+          <span class="venue">· arXiv 2026</span>
+        </p>
+        <p class="tldr"><strong>TL;DR</strong> SPrPO adds adaptive perturbations during RL training so long-horizon LLM agents better withstand noise, pruning, and quantization.</p>
       </article>
 
       <article>
-        <p class="year">arXiv · 2026</p>
-        <div>
-          <h3><a href="https://arxiv.org/abs/2606.14693">Learning Coordinated Preference for Multi-Objective Multi-Agent Reinforcement Learning</a></h3>
-          <p class="authors"><strong>Pengxin Wang</strong>, Lihao Guo, Yi Xie, Bo Liu, Siyang Cao, Jingdi Chen</p>
-          <p class="tldr"><strong>TL;DR</strong> PCMA learns which objectives each agent should prioritize so teammates can make complementary trade-offs and improve team performance.</p>
-        </div>
+        <h3><a href="https://arxiv.org/abs/2606.14693">Learning Coordinated Preference for <span class="keep-together">Multi-Objective</span> <span class="keep-together">Multi-Agent</span> Reinforcement Learning</a></h3>
+        <p class="meta">
+          <span class="author"><strong>Pengxin Wang</strong>,</span>
+          <span class="author">Lihao Guo,</span>
+          <span class="author">Yi Xie,</span>
+          <span class="author">Bo Liu,</span>
+          <span class="author">Siyang Cao,</span>
+          <span class="author">Jingdi Chen</span>
+          <span class="venue">· arXiv 2026</span>
+        </p>
+        <p class="tldr"><strong>TL;DR</strong> PCMA learns which objectives each agent should prioritize so teammates can make complementary trade-offs and improve team performance.</p>
       </article>
     </section>
   </main>
-
 </body>
 </html>
