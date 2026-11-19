@@ -179,14 +179,30 @@
       <h2 id="publications-heading">Publications</h2>
 
       <article>
-        <h3><a href="https://arxiv.org/abs/2611.23909">CoSlice: Coordinated <span class="keep-together">Multi-Agent</span> Reinforcement Learning for 5G Network Slicing Allocation</a></h3>
+        <h3><a href="https://arxiv.org/abs/2609.34064">Learning Perturbation Robust Policies for LLM Agents with Stable Optimization</a></h3>
         <p class="meta">
           <span class="author"><strong>Pengxin Wang</strong>,</span>
-          <span class="author">Nakjung Choi,</span>
+          <span class="author">Yuanzhe Li,</span>
+          <span class="author">Yuxin Ren,</span>
+          <span class="author">Huanrui Yang,</span>
           <span class="author">Jingdi Chen</span>
           <span class="venue">· arXiv 2026</span>
         </p>
-        <p class="tldr"><strong>TL;DR</strong> An LLM adjusts the priorities of fast resource-allocation agents, reducing service-level violations in simulated 5G networks.</p>
+        <p class="tldr"><strong>TL;DR</strong> Long-horizon LLM agents can lose performance when quantization, pruning, or random noise perturbs their policies. We use adaptive perturbations during RL training to make those policies more robust at deployment.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://arxiv.org/abs/2606.14693">Learning Coordinated Preference for <span class="keep-together">Multi-Objective</span> <span class="keep-together">Multi-Agent</span> Reinforcement Learning</a></h3>
+        <p class="meta">
+          <span class="author"><strong>Pengxin Wang</strong>,</span>
+          <span class="author">Lihao Guo,</span>
+          <span class="author">Yi Xie,</span>
+          <span class="author">Bo Liu,</span>
+          <span class="author">Siyang Cao,</span>
+          <span class="author">Jingdi Chen</span>
+          <span class="venue">· arXiv 2026</span>
+        </p>
+        <p class="tldr"><strong>TL;DR</strong> When agents share several competing objectives, PCMA learns and coordinates their individual preferences so different agents can prioritize different goals and work better as a team.</p>
       </article>
 
       <article>
@@ -202,34 +218,18 @@
           <span class="author">Huanrui Yang</span>
           <span class="venue">· arXiv 2026</span>
         </p>
-        <p class="tldr"><strong>TL;DR</strong> TAP prunes LLM agents and uses teacher trajectories to recover task performance, cutting GPU time per successful task on ALFWorld and WebShop.</p>
+        <p class="tldr"><strong>TL;DR</strong> TAP uses on-policy distillation (OPD) to recover task performance after pruning an LLM agent. The pruned agent generates its own responses at steps along the teacher’s trajectories and learns from the teacher’s feedback.</p>
       </article>
 
       <article>
-        <h3><a href="https://arxiv.org/abs/2609.34064">Learning Perturbation Robust Policies for LLM Agents with Stable Optimization</a></h3>
+        <h3><a href="https://arxiv.org/abs/2611.23909">CoSlice: Coordinated <span class="keep-together">Multi-Agent</span> Reinforcement Learning for 5G Network Slicing Allocation</a></h3>
         <p class="meta">
           <span class="author"><strong>Pengxin Wang</strong>,</span>
-          <span class="author">Yuanzhe Li,</span>
-          <span class="author">Yuxin Ren,</span>
-          <span class="author">Huanrui Yang,</span>
+          <span class="author">Nakjung Choi,</span>
           <span class="author">Jingdi Chen</span>
           <span class="venue">· arXiv 2026</span>
         </p>
-        <p class="tldr"><strong>TL;DR</strong> SPrPO adds adaptive perturbations during RL training so long-horizon LLM agents better withstand noise, pruning, and quantization.</p>
-      </article>
-
-      <article>
-        <h3><a href="https://arxiv.org/abs/2606.14693">Learning Coordinated Preference for <span class="keep-together">Multi-Objective</span> <span class="keep-together">Multi-Agent</span> Reinforcement Learning</a></h3>
-        <p class="meta">
-          <span class="author"><strong>Pengxin Wang</strong>,</span>
-          <span class="author">Lihao Guo,</span>
-          <span class="author">Yi Xie,</span>
-          <span class="author">Bo Liu,</span>
-          <span class="author">Siyang Cao,</span>
-          <span class="author">Jingdi Chen</span>
-          <span class="venue">· arXiv 2026</span>
-        </p>
-        <p class="tldr"><strong>TL;DR</strong> PCMA learns which objectives each agent should prioritize so teammates can make complementary trade-offs and improve team performance.</p>
+        <p class="tldr"><strong>TL;DR</strong> CoSlice uses multi-agent RL for 5G network slicing. Lightweight DNN agents make fast resource-allocation decisions for each slice, and an LLM coordinates them by adjusting their priorities based on network-wide conditions.</p>
       </article>
     </section>
   </main>
